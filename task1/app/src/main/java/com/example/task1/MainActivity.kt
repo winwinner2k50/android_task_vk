@@ -32,6 +32,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Button
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 
 class MainActivity : ComponentActivity() {
@@ -45,7 +46,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun AddContent() {
-    val count = remember { mutableIntStateOf(0) }
+    val count = rememberSaveable { mutableIntStateOf(0) }
     val isPortrait = LocalConfiguration.current.orientation == Configuration.ORIENTATION_PORTRAIT
     val columns = if (isPortrait) 3 else 4
 
@@ -69,7 +70,7 @@ private fun AddContent() {
                         .padding(10.dp)
                         .wrapContentSize(Alignment.Center)
                 ) {
-                    Text(text = "$it")
+                    Text(text = "${it.toInt() + 1}")
                 }
             }
         }
