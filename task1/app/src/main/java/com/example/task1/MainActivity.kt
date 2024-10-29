@@ -53,14 +53,14 @@ private fun AddContent() {
     val data = List(count.intValue) { "$it" }
 
     Column(
-        modifier = Modifier.fillMaxSize() // Используйте fillMaxSize для колонки
+        modifier = Modifier.fillMaxSize()
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(columns),
             contentPadding = PaddingValues(8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
-            modifier = Modifier.weight(1f) // Добавьте weight для занимания оставшегося пространства
+            modifier = Modifier.weight(1f)
         ) {
             items(data) {
                 Box(
